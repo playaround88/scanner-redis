@@ -46,7 +46,7 @@ public class ScanThread extends Thread {
 				}
 				//如果扫描不到数据，或者扫描的数据小于fetchSize，则休眠一段时间
 				if(records==null || records.size()<this.config.getFetchSize()){
-					Thread.currentThread().sleep(this.config.getSleepTime()*1000);
+					Thread.currentThread().sleep(this.config.getFetchPeriod()*1000);
 				}
 			}catch (Exception e) {
 				LOG.error("扫描数据异常"+this.config.getQueueKey(), e);

@@ -36,7 +36,7 @@ public class DealRunner implements Runnable {
 					}
 				}else{
 					//如果获取不到数据，则休眠一段时间
-					Thread.currentThread().sleep(this.config.getSleepTime()*1000);
+					Thread.currentThread().sleep(this.config.getFetchPeriod()*1000);
 				}
 			} catch (Exception e) {
 				LOG.error("处理过程异常"+this.config.getQueueKey(), e);

@@ -15,7 +15,7 @@ public class ScanConfig implements Serializable {
 	//扫描表，每次取数据的条数
 	private int fetchSize = 100;
 	//当扫描不到数据，或者得到的数据小于fetchSize时，休眠时间
-	private long sleepTime = 10;
+	private long fetchPeriod = 10;
 	//处理线程的个数
 	private int poolSize = 5;
 	//处理线程，关闭等待时间
@@ -28,10 +28,10 @@ public class ScanConfig implements Serializable {
 	//
 	private JedisPool jedisPool;
 
-	public ScanConfig(int fetchSize, long sleepTime, int poolSize, int blockTimeout,String queueKey,
+	public ScanConfig(int fetchSize, long fetchPeriod, int poolSize, int blockTimeout,String queueKey,
 			IScanService scanService, IDealService dealService, JedisPool jedisPool) {
 		this.fetchSize = fetchSize;
-		this.sleepTime = sleepTime;
+		this.fetchPeriod = fetchPeriod;
 		this.poolSize = poolSize;
 		this.blockTimeout=blockTimeout;
 		this.queueKey=queueKey;
@@ -46,8 +46,8 @@ public class ScanConfig implements Serializable {
 		return fetchSize;
 	}
 
-	public long getSleepTime() {
-		return sleepTime;
+	public long getFetchPeriod() {
+		return fetchPeriod;
 	}
 
 	public int getPoolSize() {

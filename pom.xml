@@ -7,7 +7,7 @@
 		<version>6.0.0</version>
 	</parent>
 	<artifactId>scanner-redis</artifactId>
-	<version>2.0.0</version>
+	<version>1.1.0</version>
 
 	<properties>
 		<jedis.version>2.8.0</jedis.version>
